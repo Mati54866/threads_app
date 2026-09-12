@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <br />
+  <h1 align="center">🧵 Threads Clone</h1>
+  <p align="center">Full-Stack Threads Social Application built with Next.js 14, MongoDB, Clerk & Tailwind CSS</p>
 
-## Getting Started
+  <div>
+    <a href="https://github.com/Mati54866/threads_app/actions"><img src="https://github.com/Mati54866/threads_app/actions/workflows/ci.yml/badge.svg" alt="CI Status" /></a>
+    <img src="https://img.shields.io/badge/Next.js_14-black?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js 14" />
+    <img src="https://img.shields.io/badge/React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 18" />
+    <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/Clerk_Auth-6C47FF?style=for-the-badge&logo=clerk&logoColor=white" alt="Clerk" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  </div>
+</div>
 
-First, run the development server:
+---
+
+## 📋 Overview
+
+A full-stack social threads platform inspired by Meta Threads. Built with Next.js 14 Server Actions, MongoDB Mongoose ODM, Clerk Authentication, and UploadThing for media file storage.
+
+## 🔋 Key Features
+
+- 🔐 **Clerk Authentication**: Social login, user management, and protected routes.
+- 🧵 **Thread Creation & Replies**: Nested thread comments, community posts, and user tags.
+- 👥 **Communities & Organizations**: Create, join, and manage custom community channels.
+- 🔍 **User Search**: Real-time user discovery and profile management.
+- 📱 **Responsive UI**: Dark mode UI styled with Tailwind CSS & Shadcn UI primitives.
+
+## 🚀 Quick Start
 
 ```bash
+git clone https://github.com/Mati54866/threads_app.git
+cd threads_app
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
