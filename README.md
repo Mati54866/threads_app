@@ -25,7 +25,7 @@ A full-stack social threads platform inspired by Meta Threads. Built with Next.j
 - 🧵 **Thread Creation & Replies**: Nested thread comments, community posts, and user tags.
 - 👥 **Communities & Organizations**: Create, join, and manage custom community channels.
 - 🔍 **User Search**: Real-time user discovery and profile management.
-- 📱 **Responsive UI**: Dark mode UI styled with Tailwind CSS & Shadcn UI primitives.
+- 📱 **Responsive UI**: Dark mode UI styled with Tailwind CSS & Shadcn UI primitive.
 
 ## 🚀 Quick Start
 
