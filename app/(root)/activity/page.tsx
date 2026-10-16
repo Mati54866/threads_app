@@ -26,7 +26,7 @@ async function Page() {
               <Link key={activity._id} href={`/thread/${activity.parentId}`}>
                 <article className="activity-card">
                   <Image 
-                    src={activity.author.image}
+                    src={activity.author?.image || "/assets/user.svg"}
                     alt="Profile Picture"
                     width={20}
                     height={20}
@@ -34,7 +34,7 @@ async function Page() {
                   />
                   <p className="!text-small-regular text-light-1">
                     <span className="mr-1 text-primary-500">
-                      {activity.author.name}
+                      {activity.author?.name || "Someone"}
                     </span>{" "}
                     replied to your thread
                   </p>

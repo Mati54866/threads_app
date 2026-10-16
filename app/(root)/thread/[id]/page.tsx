@@ -15,6 +15,13 @@ const Page = async ({ params }: { params: { id: string }}) => {
   if(!userInfo?.onboarded) redirect('/onboarding')
 
   const thread = await fetchThreadById(params.id);
+  if (!thread) {
+    return (
+      <section className="relative">
+        <p className="no-result">Thread not found or has been deleted.</p>
+      </section>
+    );
+  }
 
   return (
     <section className="relative">
