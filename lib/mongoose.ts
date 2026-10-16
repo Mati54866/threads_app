@@ -1,20 +1,26 @@
 import mongoose from 'mongoose';
 
-let isConnected = false; // variable to check if mongoose is connected
+let isConnected = false;
 
 export const connectToDB = async () => {
   mongoose.set('strictQuery', true);
 
-  if(!process.env.MONGODB_URL) return console.log('MONGODB_URL not found');
-  if(isConnected) return console.log('Already connected to MongoDB');
+  if (!process.env.MONGODB_URL) {
+    console.error('MONGODB_URL not found in environment variables');
+    throw new Error('MONGODB_URL environment variable is required');
+  }
+
+  if (isConnected && mongoose.connection.readyState === 1) {
+    return;
+  }
 
   try {
     await mongoose.connect(process.env.MONGODB_URL);
-
     isConnected = true;
-
     console.log('Connected to MongoDB');
   } catch (error) {
-    console.log(error);
+    isConnected = false;
+    console.error('Failed to connect to MongoDB:', error);
+    throw error;
   }
-}
+};
