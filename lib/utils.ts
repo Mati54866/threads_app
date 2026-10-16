@@ -7,20 +7,25 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // created by chatgpt
-export function isBase64Image(imageData: string) {
+export function isBase64Image(imageData?: string | null): boolean {
+  if (!imageData || typeof imageData !== "string") return false;
   const base64Regex = /^data:image\/(png|jpe?g|gif|webp);base64,/;
   return base64Regex.test(imageData);
 }
 
 // created by chatgpt
-export function formatDateString(dateString: string) {
+export function formatDateString(dateString?: string | null): string {
+  if (!dateString) return "";
+
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return "";
+
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "short",
     day: "numeric",
   };
 
-  const date = new Date(dateString);
   const formattedDate = date.toLocaleDateString(undefined, options);
 
   const time = date.toLocaleTimeString([], {
@@ -33,11 +38,14 @@ export function formatDateString(dateString: string) {
 
 // created by chatgpt
 export function formatThreadCount(count: number): string {
-  if (count === 0) {
+  const safeCount = Number.isFinite(count) ? Math.max(0, Math.floor(count)) : 0;
+
+  if (safeCount === 0) {
     return "No Threads";
   } else {
-    const threadCount = count.toString().padStart(2, "0");
-    const threadWord = count === 1 ? "Thread" : "Threads";
+    const threadCount = safeCount.toString().padStart(2, "0");
+    const threadWord = safeCount === 1 ? "Thread" : "Threads";
     return `${threadCount} ${threadWord}`;
   }
 }
+
