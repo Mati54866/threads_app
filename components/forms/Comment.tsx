@@ -33,10 +33,20 @@ const Comment = ({ threadId, currentUserImg, currentUserId }: Props) => {
   })
 
   const onSubmit = async (values: z.infer<typeof CommentValidation>) => {
-    await addCommentToThread(threadId, values.thread, JSON.parse(currentUserId), pathname);
+    let parsedUserId: string;
+    try {
+      parsedUserId =
+        typeof currentUserId === "string" && currentUserId.startsWith('"')
+          ? JSON.parse(currentUserId)
+          : currentUserId;
+    } catch {
+      parsedUserId = currentUserId;
+    }
+
+    await addCommentToThread(threadId, values.thread, parsedUserId, pathname);
 
     form.reset();
-  }
+  };
 
   return (
     <Form {...form}>
@@ -71,8 +81,12 @@ const Comment = ({ threadId, currentUserImg, currentUserId }: Props) => {
           )}
         />
 
-        <Button type="submit" className="comment-form_btn">
-          Reply
+        <Button 
+          type="submit" 
+          disabled={form.formState.isSubmitting} 
+          className="comment-form_btn disabled:opacity-50"
+        >
+          {form.formState.isSubmitting ? "Replying..." : "Reply"}
         </Button>
       </form>
     </Form>
